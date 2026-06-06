@@ -3,6 +3,9 @@
 
 
 def matrix_shape(matrix):
+    """checks the shape of a matrix, but
+    more as a first-explorer. Does not
+    work for non-rectangular, e.g."""
     shape = []
     while isinstance(matrix, list):
         if not matrix:
