@@ -4,4 +4,4 @@
 
 def np_transpose(matrix):
     """Returns the shape of a NumPy array."""
-    return np.transpose(matrix)
+    return matrix.T
