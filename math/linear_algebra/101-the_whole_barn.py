@@ -3,17 +3,17 @@
 
 
 def add_matrices(mat1, mat2):
-    """adds two matrices.
-    arguments:
-        matrix
-        axes: as a dictionary, where the value is a tuple"""
+    """Element-wise addition of two matrices of equal shape."""
 
+    # both are lists → recurse
     if isinstance(mat1, list) and isinstance(mat2, list):
         if len(mat1) != len(mat2):
             return None
-        else:
-            return [add_matrices(m1, m2) for m1, m2 in zip(mat1, mat2)]
-    elif isinstance(mat1, list) or isinstance(mat2, list):
+        return [add_matrices(a, b) for a, b in zip(mat1, mat2)]
+
+    # structure mismatch
+    if isinstance(mat1, list) or isinstance(mat2, list):
         return None
-    else:
-        return (mat1 + mat2)
+
+    # base case (scalars)
+    return mat1 + mat2
