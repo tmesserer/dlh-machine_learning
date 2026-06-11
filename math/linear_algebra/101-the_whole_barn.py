@@ -12,7 +12,7 @@ def add_matrices(mat1, mat2):
         if len(mat1) != len(mat2):
             return None
         else:
-            return [add_matrices(mat1, mat2) for mat1, mat2 in zip(mat1, mat2)]
+            return [add_matrices(m1, m2) for m1, m2 in zip(mat1, mat2)]
     elif isinstance(mat1, list) or isinstance(mat2, list):
         return None
     else:
