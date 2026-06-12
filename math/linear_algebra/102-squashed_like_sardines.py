@@ -4,23 +4,25 @@
 
 def cat_matrices(mat1, mat2, axis=0):
     """Matrix concatenation alongside a specified axis"""
-    new_matrix = []
-    #first part: drill down to right level with zip once for each axis
-    if axis > 0 and len(mat1) == len(mat2):
+    if axis == 0 and (
+        isinstance(mat1[0], list) != isinstance(mat2[0], list)
+        or (isinstance(mat1[0], list) and len(mat1[0]) != len(mat2[0]))
+    ):
+        return None
+
+    if axis > 0:
+        if len(mat1) != len(mat2):
+            return None
         return [cat_matrices(m1, m2, axis - 1) for m1, m2 in zip(mat1, mat2)]
-    #elif len(mat1) != len(mat2):
-        #return "lenghts of matrices unequal"
-    
-    #when at right dimension (still list, no number) --> concatenate:
-    # if isinstance(mat1, list) and isinstance(mat2, list):
-    new_matrix.append(mat1 + mat2)
-    return new_matrix
-    #else:
-        #return None
+
+    return mat1 + mat2
+
 
 """
 mat1 = [1, 2, 3]
-mat2 = [4, 5, 6]
+mat2 = [4, 5, 6, 7]
+new_matrix = mat1 + mat2
+print(new_matrix)
 cat_matrices(mat1, mat2, axis = 0)
 
 mat1 = [[1, 2], [3, 4]]
