@@ -1,5 +1,5 @@
 -- this comment is a description of the script below
-SELECT a.name as genre, COUNT(c.title) AS number_of_shows
+SELECT a.name AS genre, COUNT(c.title) AS number_of_shows
 FROM tv_genres a
     INNER JOIN tv_show_genres b
     ON a.id = b.genre_id
