@@ -1,9 +1,18 @@
 -- this comment is a description of the script below
 DELIMITER $$
-CREATE TRIGGER reset_email
-BEFORE UPDATE ON users FOR EACH ROW
+CREATE PROCEDURE AddBonus
+    (IN user_id VARCHAR(255), IN project_name VARCHAR(255), IN score FLOAT)
 BEGIN
-    IF NEW.email != OLD.email THEN SET NEW.valid_email = 0;
-    END IF;
+    IF NOT EXISTS (SELECT name FROM projects WHERE name = project_name) THEN
+        INSERT INTO projects (id, name) VALUES (DEFAULT, project_name)
+        END IF;
+    INSERT INTO corrections 
+        IF project_name NOT IN (
+            SELECT name FROM projects a
+                INNER JOIN corrections b
+                ON a.id = b.project_id
+            ) 
+                THEN VALUE(name = project_name), 
+        VALUE (score = score)
 END$$
 DELIMITER ;
