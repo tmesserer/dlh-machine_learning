@@ -3,16 +3,12 @@ DELIMITER $$
 CREATE PROCEDURE AddBonus
     (IN user_id VARCHAR(255), IN project_name VARCHAR(255), IN score FLOAT)
 BEGIN
+    DECLARE project_id INT;
     IF NOT EXISTS (SELECT name FROM projects WHERE name = project_name) THEN
-        INSERT INTO projects (id, name) VALUES (DEFAULT, project_name)
-        END IF;
-    INSERT INTO corrections 
-        IF project_name NOT IN (
-            SELECT name FROM projects a
-                INNER JOIN corrections b
-                ON a.id = b.project_id
-            ) 
-                THEN VALUE(name = project_name), 
-        VALUE (score = score)
+        INSERT INTO projects (id, name) VALUES (DEFAULT, project_name);
+    END IF;
+    SELECT id INTO project_id FROM projects WHERE name = project_name;
+    INSERT INTO corrections (user_id, project_id, score) 
+        VALUES(user_id, project_id, score);
 END$$
 DELIMITER ;
