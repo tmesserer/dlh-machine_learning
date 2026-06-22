@@ -1,2 +1,2 @@
 // this is a comment to start the script
-show dbs
+db.adminCommand({ listDatabases: 1 })
