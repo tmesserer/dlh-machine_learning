@@ -1,2 +1,2 @@
-// use my_db
-use my_db
+// insert a value in a collection
+db.school.insert( { name: "Holberton school" } )
