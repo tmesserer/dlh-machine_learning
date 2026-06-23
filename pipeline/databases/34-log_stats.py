@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """module for pymongo / mongo db and python"""
 from pymongo import MongoClient
-client = MongoClient(...)
+client = MongoClient('mongodb://127.0.0.1:27017')
 collection = client.logs.nginx
 
 total = collection.count_documents({})
