@@ -9,7 +9,7 @@ def definiteness(matrix):
         raise TypeError('matrix must be a numpy.ndarray')
     if matrix.ndim != 2 or matrix.shape[0] != matrix.shape[1]:
         return None
-    if not np.array_equal(matrix == matrix.T): 
+    if not np.array_equal(matrix, matrix.T): 
         return None
     # calculate eigenvalues and definiteness
     try:
