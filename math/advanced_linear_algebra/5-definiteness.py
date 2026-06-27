@@ -5,20 +5,10 @@ import numpy as np
 
 def definiteness(matrix):
     """Determines the definiteness of a matrix"""
-
-    """
-    if not isinstance(matrix, list) or len(matrix) == 0 or \
-            not all(isinstance(row, list) for row in matrix):
-        return None
-    if not (all(len(row) == len(matrix) for row in matrix)) or not \
-           (all(i is not None for row in matrix for i in row)):
-        return None
-    #if determinant(matrix) == 0:
-        #return None
-    """
-    if isinstance(mat1, np.ndarray) is False:
+    if isinstance(matrix, np.ndarray) is False:
         raise TypeError('matrix must be a numpy.ndarray')
-
+    if matrix.ndim != 2 or matrix.shape[0] != matrix.shape[1]:
+        return None
     # calculate eigenvalues and definiteness
     try:
         ev, eigenvectors = np.linalg.eig(matrix)
