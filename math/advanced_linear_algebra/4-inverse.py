@@ -14,6 +14,18 @@ def matrix_multiplication(mult_factor, matrix):
     return new_matrix
 
 
+def matrix_division(div_factor, matrix):
+    """divides matrix by a constant factor"""
+    new_matrix = []
+    for i in range(0, len(matrix)):
+        if not isinstance(matrix[i], list):
+            new_matrix.append(matrix[i] / div_factor)
+        else:
+            result = matrix_division(div_factor, matrix[i])
+            new_matrix.append(result)
+    return new_matrix
+
+
 def add_matrices(mat1, mat2):
     """checks if matrices are same length.
     If they are, returns an element-wise addition."""
@@ -147,13 +159,5 @@ def inverse(matrix):
         return inv
 
     # 3x3 matrix and beyond
-    # base case 3x3
-    # for row in range(0, len(matrix)):
-        # for column in range(0, len(matrix[0])):
-
-
-    inv = matrix_multiplication((1 / determinant(matrix)),
-                                adjugate(matrix))
+    inv = matrix_division((determinant(matrix)), adjugate(matrix))
     return inv
-
-mat4 = [[5, 7, 9, 1], [3, 1, 8, 2], [6, 2, 4,3 ], [1,2,3,4]]
