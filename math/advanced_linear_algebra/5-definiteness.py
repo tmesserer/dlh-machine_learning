@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Module for advanced linear algebra"""
+import numpy as np
 
 
 def definiteness(matrix):
     """Determines the definiteness of a matrix"""
-    import numpy as np
+
     """
     if not isinstance(matrix, list) or len(matrix) == 0 or \
             not all(isinstance(row, list) for row in matrix):
