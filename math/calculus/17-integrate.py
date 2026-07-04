@@ -12,6 +12,10 @@ def poly_integral(poly, C=0):
         new_poly.append(C)
         new_poly.extend([int(poly[i] / (i+1)) if poly[i] % (i+1) == 0
                          else poly[i] / (i+1) for i in range(0, len(poly))])
-        return new_poly
+        if poly != 0:
+            return new_poly
+        else:
+            new_poly.append(0)
+            return new_poly
     else:
         return None
