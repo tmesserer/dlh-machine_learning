@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 
 def change_scale():
+    """function that plots a graph"""
     x = np.arange(0, 28651, 5730)
     r = np.log(0.5)
     t = 5730
@@ -17,5 +18,5 @@ def change_scale():
     plt.xlabel('Time (years)')
     plt.ylabel('Fraction Remaining')
     plt.title('Exponential Decay of C-14')
-    plt.plot(x, y, 'b')
+    plt.plot(x, y)
     plt.show()
