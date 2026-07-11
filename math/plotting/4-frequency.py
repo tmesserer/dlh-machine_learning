@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# %%
 """Module for plotting with matplotlib and pyplot"""
 import numpy as np
 import matplotlib.pyplot as plt
+
 
 def frequency():
     """function that plots a graph"""
@@ -14,36 +14,9 @@ def frequency():
     plt.xlabel('Grades')
     plt.ylabel('Number of Students')
     plt.title('Project A')
-    plt.hist(student_grades)
+    plt.ylim(0, 30)
+    plt.xlim(0, 100)
+    plt.xticks(np.arange(0, 101, step=10))
+    plt.hist(student_grades, bins=np.arange(0, 101, 10),
+             histtype='bar', edgecolor='black')
     plt.show()
-
-frequency()
-
-# %%
-"""Module for plotting with matplotlib and pyplot"""
-import numpy as np
-import matplotlib.pyplot as plt
-
-
-def two():
-    """function that plots a graph"""
-    x = np.arange(0, 21000, 1000)
-    r = np.log(0.5)
-    t1 = 5730
-    t2 = 1600
-    y1 = np.exp((r / t1) * x)
-    y2 = np.exp((r / t2) * x)
-    plt.figure(figsize=(6.4, 4.8))
-
-    # your code here
-    plt.xlabel('Time (years)')
-    plt.ylabel('Fraction Remaining')
-    plt.title('Exponential Decay of Radioactive Elements')
-    plt.xlim(0, 20000)
-    plt.ylim(0, 1)
-    plt.plot(x, y1, '--r', label='C-14')
-    plt.plot(x, y2, 'g', label='Ra-226')
-    plt.legend()
-    plt.show()
-two()
-# %%
