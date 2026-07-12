@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# %%
 """Module for plotting with matplotlib and pyplot"""
 import numpy as np
 import matplotlib.pyplot as plt
@@ -24,13 +23,14 @@ def bars():
     fruit_colors = {
         "apples": "red",
         "bananas": "yellow",
-        "oranges": "orange",
+        "oranges": "#ff8000",
         "peaches": "#ffe5b4",
     }
 
     plt.ylabel('Quantity of Fruit')
     plt.title('Number of Fruit per Person')
     plt.ylim(0, 80)
+    plt.yticks(np.arange(0, 81, step=10))
 
     for name, fruit_bar in fruit_plot.items():
         p = plt.bar(x=['Farrah', 'Fred', 'Felicia'],
