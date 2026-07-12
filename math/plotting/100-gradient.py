@@ -24,7 +24,3 @@ def gradient():
     plt.colorbar(label='elevation (m)')
 
     plt.show()
-
-
-gradient()
-# %%
