@@ -33,8 +33,18 @@ class Exponential:
         """calculates the value of PMF for a number of successes
         Args:
         - self,
-        - k
+        - x
         """
         if x < 0:
             return 0
         return (self.lambtha * (2.7182818285 ** (-self.lambtha * x)))
+
+    def cdf(self, x):
+        """calculates the value of CDF for exponential dist
+        Args:
+        - self,
+        - x
+        """
+        if x < 0:
+            return 0
+        return (1 - (2.7182818285 ** (- self.lambtha * x)))
