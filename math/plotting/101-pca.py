@@ -36,3 +36,5 @@ ax.scatter(xs=x_data,
            cmap='plasma')
 
 plt.show()
+
+# %%
