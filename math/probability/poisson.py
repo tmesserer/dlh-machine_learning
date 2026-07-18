@@ -8,8 +8,15 @@ er f(x) = ....
 
 
 class Poisson:
+    """
+    defines the class Poisson for Poisson probabilities
+    """
     def __init__(self, data=None, lambtha=1.):
-        """initializes the class"""
+        """initiatilizes an instance under Poisson
+        Args:
+            data: validity checks, list of data
+            lambtha: validity check, calculates it based on data if not given
+        """
         if data is None:
             if lambtha <= 0:
                 raise ValueError("lambtha must be a positive value")
