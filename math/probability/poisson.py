@@ -31,7 +31,7 @@ class Poisson:
 
     def pmf(self, k):
         """calculates the value of PMF for a number of successes
-        Args: 
+        Args:
         - self,
         - k
         """
@@ -42,5 +42,5 @@ class Poisson:
         fact_k = 1
         for x in range(1, k):
             fact_k = fact_k * (x+1)
-        return (((self.lambtha ** k) * (2.7182818285 ** ((-1)*self.lambtha))) / fact_k)
-
+        return (((self.lambtha ** k) *
+                 (2.7182818285 ** ((-1)*self.lambtha))) / fact_k)
