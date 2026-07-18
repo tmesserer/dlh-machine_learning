@@ -44,3 +44,18 @@ class Poisson:
             fact_k = fact_k * (x+1)
         return (((self.lambtha ** k) *
                  (2.7182818285 ** ((-1)*self.lambtha))) / fact_k)
+
+    def cdf(self, k):
+        """calculates the value of CMF up to a number of successes
+        Args:
+        - self,
+        - k
+        """
+        if not isinstance(k, int):
+            k = int(k)
+        if k < 0:
+            return 0
+        cdf_value = 0
+        for x in range(0, k+1):
+            cdf_value += self.pmf(x)
+        return cdf_value
