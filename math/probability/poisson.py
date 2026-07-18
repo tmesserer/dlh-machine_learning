@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Module for describing the poisson distribution"""
-import numpy as np
 """
 π = 3.1415926536
 e = 2.7182818285
@@ -21,4 +20,4 @@ class Poisson:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.data = data
-            self.lambtha = float(np.mean(data))
+            self.lambtha = (sum(data)/len(data))
