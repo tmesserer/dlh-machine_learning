@@ -28,3 +28,13 @@ class Exponential:
                 raise ValueError("data must contain multiple values")
             self.data = data
             self.lambtha = 1/(sum(data)/len(data))
+
+    def pdf(self, x):
+        """calculates the value of PMF for a number of successes
+        Args:
+        - self,
+        - k
+        """
+        if x <= 0:
+            return 0
+        return (self.lambtha * (2.7182818285 ** (-self.lambtha * x)))
