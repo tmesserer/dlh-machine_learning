@@ -59,3 +59,16 @@ class Normal:
                 * 2.7182818285 **
                 (-((x - self.mean) ** 2) / (2 * (self.stddev ** 2)))
                 )
+
+    def cdf(self, x):
+        """calculates the cumulative density function for a given x
+        Args:
+            self
+            x
+        """
+        v = ((x - self.mean) / (self.stddev * (2 ** (1/2))))
+        erfx = ((2 / (3.1415926536 ** (1/2)))
+                * (v - ((v ** 3) / 3) + ((v ** 5) / 10) -
+                   ((v ** 7) / 42) + ((v ** 9) / 216))
+                )
+        return ((1/2) * (1 + erfx))
