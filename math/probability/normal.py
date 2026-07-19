@@ -39,7 +39,7 @@ class Normal:
             self
             x
         """
-        return((x - self.mean) / self.stddev)
+        return ((x - self.mean) / self.stddev)
 
     def x_value(self, z):
         """calculates the x value of a given z score
@@ -47,4 +47,4 @@ class Normal:
             self
             z
         """
-        return((z * self.stddev) + self.mean)
+        return ((z * self.stddev) + self.mean)
