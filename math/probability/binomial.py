@@ -31,7 +31,7 @@ class Binomial:
             # calc est mean and var
             est_mean = sum(data)/len(data)
             est_var = sum(((x - est_mean) ** 2)
-                               for x in data) / len(data)
+                          for x in data) / len(data)
 
             # mu = n*p
             # var = np(1-p)
