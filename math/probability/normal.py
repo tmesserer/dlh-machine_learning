@@ -48,3 +48,14 @@ class Normal:
             z
         """
         return ((z * self.stddev) + self.mean)
+
+    def pdf(self, x):
+        """calculates the probability density function for a given x
+        Args:
+            self
+            x
+        """
+        return ((1 / (self.stddev * (2 * 3.1415926536) ** (1/2)))
+                * 2.7182818285 **
+                (-((x - self.mean) ** 2) / (2 * (self.stddev ** 2)))
+                )
