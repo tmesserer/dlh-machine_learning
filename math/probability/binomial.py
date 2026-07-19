@@ -16,9 +16,9 @@ class Binomial:
             p: probability of success
         """
         if data is None:
-            if n < 0:
+            if n <= 0:
                 raise ValueError("n must be a positive value")
-            if p < 0 or p > 1:
+            if p <= 0 or p >= 1:
                 raise ValueError("p must be greater than 0 and less than 1")
             self.n = int(n)
             self.p = float(p)
@@ -29,19 +29,19 @@ class Binomial:
                 raise ValueError("data must contain multiple values")
 
             # calc est mean and var
-            self.est_mean = sum(data)/len(data)
-            self.est_var = sum(((x - self.est_mean) ** 2)
+            est_mean = sum(data)/len(data)
+            est_var = sum(((x - est_mean) ** 2)
                                for x in data) / len(data)
 
             # mu = n*p
             # var = np(1-p)
             # var/mu = 1-p
-            # p1 = 1- var/mu
+            # p1 = 1- var / mu
             # self.p1 = 1 - (self.est_var / self.est_mean)
-            self.p1 = 1 - (self.est_var / self.est_mean)
-            self.n = round(self.est_mean / self.p1)
+            p1 = 1 - (est_var / est_mean)
+            self.n = round(est_mean / p1)
 
-            # n= mu/p
+            # n= mu / p
             # n = round(n_est, 0)
-            # new p: p = n * mu
-            self.p = self.est_mean / self.n
+            # new p = mu / n
+            self.p = est_mean / self.n
