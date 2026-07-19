@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 """Module for describing the poisson distribution"""
 """
-π = 3.1415926536
 e = 2.7182818285
-er f(x) = ....
 """
 
 
