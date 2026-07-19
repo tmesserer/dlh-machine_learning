@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-"""Module for describing the poisson distribution"""
-"""
+"""Module for describing the normal distribution"""
 π = 3.1415926536
 e = 2.7182818285
-er f(x) = ....
-"""
+# didn't use the variables below, but should have to make it easier
 
 
 class Normal:
