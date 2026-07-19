@@ -4,6 +4,14 @@
 e = 2.7182818285
 
 
+def factorial(f):
+    """calculates the factorial of k"""
+    fact_f = 1
+    for x in range(1, int(f)):
+        fact_f = fact_f * (x+1)
+    return fact_f
+
+
 class Binomial:
     """defines the class Binomial for binomial distributions"""
     def __init__(self, data=None, n=1, p=0.5):
@@ -45,3 +53,17 @@ class Binomial:
             # n = round(n_est, 0)
             # new p = mu / n
             self.p = est_mean / self.n
+
+    def pmf(self, k):
+        """calculates the probability mass function for a given k
+        number of successes
+        Args:
+            self
+            k: number of successes
+        """
+        if not isinstance(k, int):
+            k = int(k)
+        if self.n <= k or k < 0:
+            return 0
+        return (factorial(self.n) / (factorial(k) * factorial(self.n - k))
+                * (self.p ** k) * (1 - self.p) ** (self.n - k))
