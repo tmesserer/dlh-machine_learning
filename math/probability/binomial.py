@@ -67,3 +67,19 @@ class Binomial:
             return 0
         return (factorial(self.n) / (factorial(k) * factorial(self.n - k))
                 * (self.p ** k) * (1 - self.p) ** (self.n - k))
+
+    def cdf(self, k):
+        """calculates the cumulative density function for a given k
+        number of successes
+        Args:
+            self
+            k: number of successes
+        """
+        if not isinstance(k, int):
+            k = int(k)
+        if self.n <= k or k < 0:
+            return 0
+        cum_prob = 0
+        for x in range(0, k+1):
+            cum_prob += self.pmf(x)
+        return cum_prob
