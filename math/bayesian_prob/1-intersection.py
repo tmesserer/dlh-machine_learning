@@ -35,5 +35,18 @@ def intersection(x, n, P, Pr):
         raise ValueError("Pr must sum to 1")
 
     # Calculation
-    likelihood = __import__('0-likelihood').likelihood
-    return np.multiply(likelihood(x, n, P), Pr)
+    result = []
+    for p in P:
+        pmf_formula = (
+                (factorial(n) / (factorial(x) * factorial(n-x)))
+                * (p**x) * ((1-p)**(n-x))
+                )
+        result.append(pmf_formula)
+    return np.multiply(np.array(result), Pr)
+
+
+def factorial(n):
+    """function for calculating the of an int == n factorial"""
+    if n == 1 or n == 0:
+        return 1
+    return n * factorial(n-1)
