@@ -12,7 +12,7 @@ def mean_cov(X):
     d = number of dimensions in each data point
     """
     if not isinstance(X, np.ndarray) or np.ndim(X) != 2:
-        raise TypeError("X must be a 2d numpy.ndarray")
+        raise TypeError("X must be a 2D numpy.ndarray")
     if not isinstance(X, np.ndarray) or X.shape[0] < 2:
         raise ValueError("X must contain multiple data points")
     # Calculations
