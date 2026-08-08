@@ -37,3 +37,15 @@ class MultiNormal:
             init_matrix += outer_prod / (n-1)
 
         self.cov = init_matrix
+
+    def pdf(self, x):
+        """calculates the PDF at a data point"""
+        if not isinstance(x, np.ndarray):
+            raise TypeError("x must be a numpy.ndarray")
+        d = self.mean.shape[0]
+        if np.shape(x) != (d, 1):
+            raise ValueError(f"x must have the shape ({d}, 1)")
+        denom = (2 * np.pi) ** (d/2) * (np.linalg.det(self.cov) ** (1/2))
+        exp = np.exp((-1/2) * (((x - self.mean).T) @ np.linalg.inv(self.cov))
+                     @ (x - self.mean))
+        return (1 / denom) * exp
