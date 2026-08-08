@@ -36,19 +36,3 @@ def mean_cov(X):
         init_matrix += outer_prod / (n-1)
 
     return mean, init_matrix
-
-
-"""
-import numpy as np
-list = [[1, 2, 3], [4, 5, 6], [7,8,9]]
-array = np.array(list)
-print(array.shape[0])
-print(len(array))
-print(np.ndim(array))
-help(np.reshape)
-
-
-help(np.ndarray)
-help(np.array)
-help(np.random.multivariate_normal)
-"""
