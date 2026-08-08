@@ -19,24 +19,17 @@ class MultiNormal:
         self.data = data
 
         # Mean
-        sum_n = 0
-        data = data.T
-        for row in data:
-            sum_n += row
-        mean = sum_n / n
+        self.mean = np.mean(data, axis=1, keepdims=True)
 
-        self.mean = np.reshape(mean, (d, 1))
-
-        # Covariance
-        init_matrix = np.zeros((d, d))
-        for row in data:
-            deviation = np.reshape(row, (1, d)) - mean
-            dev_row = np.reshape(deviation, (1, d))
-            dev_col = np.reshape(deviation, (d, 1))
-            outer_prod = np.matmul(dev_col, dev_row)
-            init_matrix += outer_prod / (n-1)
-
-        self.cov = init_matrix
+        # set cov (does it work the same way?)
+        # Step 1 create a centered matrix
+        DataC = data - self.mean
+        # Step 2 Multiplication (d, n) - (d, n)
+        # * (n, d)) (result should be d, d)
+        self.cov = (
+            (np.matmul(DataC, np.matrix.transpose(DataC)))
+            / (data.shape[1] - 1)
+        )
 
     def pdf(self, x):
         """calculates the PDF at a data point"""
