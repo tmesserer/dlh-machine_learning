@@ -48,4 +48,4 @@ class MultiNormal:
         denom = (2 * np.pi) ** (d/2) * (np.linalg.det(self.cov) ** (1/2))
         exp = np.exp((-1/2) * (((x - self.mean).T) @ np.linalg.inv(self.cov))
                      @ (x - self.mean))
-        return (1 / denom) * exp
+        return ((1 / denom) * exp).item()
