@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Module for using the pandas module in Python"""
 import pandas as pd
-import numpy as np
 
 
 def array(df):
