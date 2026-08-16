@@ -7,8 +7,3 @@ def array(df):
     """function that takes a pd.DataFrame as input and modifies it"""
     new_array = df[["High", "Close"]].tail(n=10).to_numpy()
     return new_array
-
-
-# Checking the file and format:
-# new_frame = pd.read_csv("coinbase.csv", sep=",")
-# print(new_frame.head)
