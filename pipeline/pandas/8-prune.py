@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Module for using the pandas module in Python"""
-import pandas as pd
 
 
 def prune(df):
