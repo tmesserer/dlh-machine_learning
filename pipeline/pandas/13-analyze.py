@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Module for using the pandas module in Python"""
-index = __import__('10-index').index
 
 
 def analyze(df):
