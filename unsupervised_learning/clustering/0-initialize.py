@@ -24,5 +24,5 @@ def initialize(X, k):
         clusters = np.random.uniform(min_X, max_X, size)
         return clusters
 
-    except (ValueError, TypeError, AttributeError):
+    except (ValueError, TypeError, AttributeError, IndexError):
         return None
