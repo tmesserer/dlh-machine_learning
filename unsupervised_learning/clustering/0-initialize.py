@@ -18,6 +18,8 @@ def initialize(X, k):
     or None on failure
     """
     try:
+        if not isinstance(k, int) or k <= 0:
+            raise ValueError
         min_X = np.min(X, axis=0)
         max_X = np.max(X, axis=0)
         size = [k, X.shape[1]]
