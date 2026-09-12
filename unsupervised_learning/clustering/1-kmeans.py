@@ -53,5 +53,5 @@ def kmeans(X, k, iterations=1000):
         clss = np.argmin(sum_array, axis=1)
         return C, clss
 
-    except(ValueError, TypeError, AttributeError, IndexError):
+    except (ValueError, TypeError, AttributeError, IndexError):
         return None, None
