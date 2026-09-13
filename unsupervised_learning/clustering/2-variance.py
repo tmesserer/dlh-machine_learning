@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Module for k-means clustering"""
 import numpy as np
+kmeans = __import__('1-kmeans').kmeans
 
 
 def variance(X, C):
