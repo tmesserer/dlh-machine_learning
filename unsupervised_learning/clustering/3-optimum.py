@@ -14,7 +14,7 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
         to check for (inclusive)
         kmax is a positive integer containing the maximum number of clusters
         to check for (inclusive)
-        iterations is a positive integer containing the maximum number of 
+        iterations is a positive integer containing the maximum number of
             iterations
         for K-means
 
@@ -26,16 +26,18 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
             raise ValueError
         if not isinstance(iterations, int) or iterations <= 0:
             raise ValueError
-        if not kmax or kmax > X.shape[0]:
+        # Step 1: fill in the default ONLY if kmax wasn't given at all
+        if kmax is None:
             kmax = X.shape[0]
+
+        # Step 2: now validate the (guaranteed non-None) kmax
         if not isinstance(kmax, int) or kmax <= 0:
             raise ValueError
-        elif kmin > kmax:
+        if kmax <= kmin:
             raise ValueError
+
         results = []
         d_vars = []
-        if kmin == kmax:
-            kmax = kmin + 1
         for k in range(kmin, kmax+1):
             C, clss = kmeans(X, k, iterations)
             results.append((C, clss))
@@ -43,7 +45,7 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
                 smallest_variance = variance(X, C)
                 d_vars.append(smallest_variance - smallest_variance)  # 0
             else:
-                d_vars.append(smallest_variance - variance(X, C) )
+                d_vars.append(smallest_variance - variance(X, C))
         return results, d_vars
 
     except (ValueError, TypeError, AttributeError, IndexError):
