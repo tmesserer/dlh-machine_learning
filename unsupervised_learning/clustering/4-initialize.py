@@ -23,7 +23,11 @@ def initialize(X, k):
     try:
         if not isinstance(k, int) or k <= 0:
             raise ValueError
+        if not isinstance(X, np.ndarray):
+            raise TypeError
         C, index = kmeans(X, k, iterations=1000)
+        if C is None or index is None:
+            raise ValueError
         pi = np.array(np.tile(1/k, k))
         m = C
         ident_mat = np.identity(X.shape[1])
