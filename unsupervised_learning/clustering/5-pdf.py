@@ -24,9 +24,10 @@ def pdf(X, m, S):
         matrices for each cluster, initialized as identity matrices
     """
     try:
-        scalar = 1 / (np.sqrt((2 * np.pi) ** S.shape[0]) * np.linalg.det(S))
+        scalar = 1 / (np.sqrt((2 * np.pi) ** S.shape[0] * np.linalg.det(S)))
         diff = X - m
-        pdf = np.e ** np.sum((-(1/2) * diff @ np.linalg.inv(S) * diff), axis=1)
+        pdf = np.e ** np.sum((-(1/2) * diff @ np.linalg.inv(S) * diff),
+                             axis=1)
         P = np.maximum(scalar * pdf, 1e-300)
         return P
 
